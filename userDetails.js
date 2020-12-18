@@ -5,33 +5,36 @@ function notification() {
     
 }
 function checkUserPass(data) {
-    let notic = true
-    const inputUser = document.getElementById("user").value
-    const inputPass = document.getElementById("pass").value
-    data.some( user => {
-        if (inputUser === user.username  || inputUser === "admin" ) {
-            if (inputPass === user.email || inputPass === "admin") {
-                console.log(inputUser, inputPass)
-                console.log(user.username, user.email)
-                notic = false
-                alert("For your own safety I will not let you in.")
-                return true;
-            }
-            
-        }
 
-    });
-    console.log(notic)
-    if (notic) {
-        notification()
-    }
-   
+    const inputUser = document.getElementById("user").value
+
+    const inputPass = document.getElementById("pass").value
+
+    return data.find( user => inputUser === user.username && inputPass === user.email )
+
 }
 
-function jsonObject(params) {
+function jsonObject(params, action) {
     fetch(params)
       .then(response => response.json())
-      .then(json => {checkUserPass(json)})
+      .then(json => action(json))
 } 
 
+function login(json) {
 
+    if (checkUserPass(json)) {
+        document.getElementById("user").value = ""
+        document.getElementById("pass").value = ""
+    }
+    else {
+        notification()
+    }
+    
+}
+
+function autoFill(json) {
+    lng = json.length
+    rnd = Math.floor(Math.random() * lng);
+    document.getElementById("user").value = json[rnd].username
+    document.getElementById("pass").value = json[rnd].email
+}

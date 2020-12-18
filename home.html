@@ -14,24 +14,38 @@
 
 <body>
 
+  <a 
+    class = "link"
+    href="https://github.com/HassanElHassan/hassan-userdetails" 
+    target="_blank"
+  > 
+  GitHub link </a>
 
-    <div class="container">
+  <a 
+  class = "link"
+  href="https://www.linkedin.com/in/hassan-el-hassan/" 
+  target="_blank"
+  > 
+  LinkedIn link </a>
 
-        <label>User Details</label>
-        <img class="imageIcon" src="images/userDetailsIcon.png" alt="Icon">
-        <input class="user" type="text" id="user" name="un" placeholder="username">
-        <input class="pass" type="text" id="pass" name="pw" placeholder="password">
-        <input class="getInfo" type="submit" value="submit" onclick="jsonObject(params)">
+  <div class="container">
 
-    </div>
+      <label>User Details</label>
+      <img class="imageIcon" src="images/userDetailsIcon.png" alt="Icon">
+      <input class="user" type="text" id="user" name="un" placeholder="username">
+      <input class="pass" type="password" id="pass" name="pw" placeholder="password">
+      <input class="getInfo auto" type="submit" value="Auto Fill Random User" onclick="jsonObject(params, autoFill)">
+      <input class="getInfo" type="submit" value="submit" onclick="jsonObject(params, login)">
 
-    <div class="container">
+  </div>
+
+  <div class="container">
 
 
-    </div>
+  </div>
 
 
-    <script src="userDetails.js"></script>
+  <script src="userDetails.js"></script>
 
 </body>
     
