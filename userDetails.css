@@ -19,7 +19,7 @@ body {
     height: 750px;
     text-align: center;
     background-color: white;
-    padding: 48px ;
+    padding: 48px 48px 24px 48px;
     border-radius: 6px;
     font-size: 48px; 
     margin: 30px;
@@ -95,4 +95,26 @@ body {
     width: 100%;
     font-size: 20px;
     margin: 8px 8px 8px 30px;   
+  }
+
+  .userdata {
+    display: flex;
+    flex-flow: column;
+    float: left;
+    width: 510px;
+    /* flex: 0 0 450px; */
+    height: 810px;
+    /* text-align: center; */
+    background-color: white;
+    padding: 18px;
+    border-radius: 6px;
+    font-size: 48px; 
+    margin: 30px;
+  }
+
+  .userdata-group {
+    width: 100%;
+    font-size: 24px; 
+    margin-bottom:  18px;
+    /* padding-left: 10px; */
   }
