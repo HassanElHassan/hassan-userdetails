@@ -6,15 +6,18 @@ function jsonObject(params, action) {
       .then(json => action(json))
 } 
 
+
 function notification() {
     alert("Authentication failed - please try again.")
 }
+
 
 function checkUserPass(data) {
     const inputUser = document.getElementById("user").value
     const inputPass = document.getElementById("pass").value
     return data.find( user => inputUser === user.username && inputPass === user.email )
 }
+
 
 function autoFill(json) {
     const lng = json.length
@@ -23,7 +26,8 @@ function autoFill(json) {
     document.getElementById("pass").value = json[rnd].email
 }
 
-function login(json) {
+
+function submitCredentials(json) {
     const userData = checkUserPass(json)
     console.log(userData)
     if (userData) {
@@ -36,9 +40,10 @@ function login(json) {
     }    
 }
 
+
 function showData(userData) {
 
-    document.getElementsByClassName("userdata")[0].innerHTML = ""
+    document.getElementsByClassName("user-details-container")[0].innerHTML = ""
 
     for (const [keyL1, valueL1] of Object.entries(userData)) {
 
@@ -67,10 +72,11 @@ function showData(userData) {
     }
 }
 
+
 function createDivUserata(levelMargin, key, value=false) {
 
     let div = document.createElement("div")
-    div.className = "userdata-group" 
+    div.className = "user-detail" 
     div.style.marginLeft = `${8 * levelMargin - 8}px`
 
     let spanKey = document.createElement("span")
@@ -83,5 +89,5 @@ function createDivUserata(levelMargin, key, value=false) {
         div.appendChild(spanValue)
     }
 
-    document.getElementsByClassName("userdata")[0].appendChild(div)
+    document.getElementsByClassName("user-details-container")[0].appendChild(div)
 }
